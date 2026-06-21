@@ -21,34 +21,140 @@ const itinerary = [
   {
     day: 2,
     date: "6월 30일 (화)",
-    title: "사그라다와 El Glop 점심",
+    title: "가우디 셀프 가이드",
     city: "바르셀로나",
-    route: "숙소 → 사그라다 파밀리아 → El Glop → 숙소",
+    route: "숙소 → 사그라다 파밀리아 → El Glop → 구엘 공원 → 카사 밀라 → 카사 바뜨요 → 숙소",
     lodging: "Duquesa de Cardona 4* Sup",
     stops: [
       { name: "Duquesa de Cardona", note: "출발", coords: [41.3802, 2.1815] },
       { name: "Sagrada Familia", note: "09:30 입장", coords: [41.4036, 2.1744] },
       { name: "El Glop Gaudi", note: "사그라다 근처 점심", coords: [41.4022, 2.176] },
-      { name: "Duquesa de Cardona", note: "오후 휴식", coords: [41.3802, 2.1815] },
-      { name: "Port Vell", note: "옵션 A: 항구 산책", coords: [41.3835, 2.1833] },
-      { name: "Gothic Quarter", note: "옵션 B: 야경 산책", coords: [41.3839, 2.1763] },
-      { name: "Barceloneta", note: "옵션 C: 바다 산책", coords: [41.3784, 2.1925] },
+      { name: "Park Guell", note: "14:00 일반권 구매 완료", coords: [41.4145, 2.1527] },
+      { name: "Casa Mila", note: "외관 도슨트", coords: [41.3954, 2.162] },
+      { name: "Casa Batllo", note: "외관 도슨트", coords: [41.3917, 2.1649] },
+      { name: "Duquesa de Cardona", note: "휴식", coords: [41.3802, 2.1815] },
     ],
     timeline: [
-      ["08:30", "숙소 출발", "Duquesa de Cardona", "택시 또는 지하철"],
+      ["08:30", "숙소 출발", "Duquesa de Cardona", "택시 권장"],
       ["09:30", "사그라다 파밀리아 입장", "Sagrada Familia", "예약 완료"],
       ["10:00", "탄생의 파사드 타워", "Nativity facade tower", "타워 입장"],
-      ["11:30", "내부 관람 마무리", "Sagrada Familia", "사진/기념품"],
-      ["12:15", "점심 장소 이동", "El Glop Gaudi", "Carrer de Valencia 443, 도보 이동"],
-      ["12:30", "캐주얼 점심", "El Glop Gaudi", "아로스 네그레/파에야/타파스 후보"],
-      ["14:30", "숙소 복귀 & 휴식", "Duquesa de Cardona", "택시 권장"],
-      ["17:30 이후", "오후/저녁 선택 옵션", "숙소 근처", "항구 / 고딕지구 / 바르셀로네타 중 선택"],
+      ["11:30", "내부 관람 마무리", "Sagrada Familia", "사진/기념품, 외관 도슨트"],
+      ["11:50", "캐주얼 점심", "El Glop Gaudi", "구엘 공원 전 무겁지 않게"],
+      ["13:20", "택시 이동", "El Glop → Park Guell", "Carretera del Carmel 방향"],
+      ["14:00", "구엘 공원 입장", "Park Guell", "입장권 구매 완료"],
+      ["14:00~15:30", "구엘 공원 셀프 가이드", "Park Guell", "Nature Square, Hypostyle Room, Dragon Stairway"],
+      ["15:30", "택시 이동", "Park Guell → Casa Mila", "택시 승강장 또는 Picmi"],
+      ["15:50", "카사 밀라 외관 도슨트", "Casa Mila", "내부 입장 없음"],
+      ["16:25", "도보 이동", "Passeig de Gracia", "카사 바뜨요까지 약 8~10분"],
+      ["16:35", "카사 바뜨요 외관 도슨트", "Casa Batllo", "내부 입장 없음"],
+      ["17:15", "숙소 복귀", "Duquesa de Cardona", "택시 권장"],
+      ["17:45 이후", "저녁 선택 옵션", "숙소 근처", "컨디션 보고 항구 / 고딕지구 / 바르셀로네타 중 선택"],
     ],
     transport: [
       "사그라다 파밀리아 09:30 / 타워 10:00 시간 고정",
-      "파인다이닝 예약은 포기하고 El Glop Gaudi로 도보 이동",
-      "점심 후 숙소 복귀는 택시 권장",
+      "구엘 공원 일반권 14:00 구매 완료",
+      "숙소 → 사그라다 → 구엘 공원 → 카사 밀라 구간은 택시 권장",
+      "카사 밀라 → 카사 바뜨요는 Passeig de Gracia 도보 이동",
+      "파인다이닝 예약은 포기하고 El Glop Gaudi에서 빠른 점심",
       "저녁은 컨디션 보고 항구, 고딕지구, 바르셀로네타 중 선택",
+    ],
+    guideStops: [
+      {
+        label: "사그라다",
+        title: "사그라다 파밀리아 - 가우디의 마지막 큰 꿈",
+        coords: [41.4036, 2.1744],
+        lead:
+          "2026년은 가우디 사후 100년이다. 1883년 31세에 맡은 프로젝트에 1914년부터는 온전히 집중했고, 전차 사고로 세상을 떠난 뒤에도 세대가 이어 짓고 있다.",
+        points: [
+          "가우디는 자연을 꽃무늬가 아니라 구조의 선생님으로 봤다. 내부 기둥은 숲처럼 갈라지며 무게와 빛을 동시에 다룬다.",
+          "탄생의 파사드는 생명과 기쁨의 얼굴이다. 동물, 식물, 인물이 빽빽한 이유도 성당 전체가 하나의 살아 있는 성서처럼 읽히기 때문이다.",
+          "스페인 내전 때 자료와 모형이 훼손되어 지금의 성당은 가우디의 유산과 후대의 복원, 해석이 함께 있는 건축이다.",
+        ],
+      },
+      {
+        label: "구엘 공원 입구",
+        title: "구엘 공원 - 팔리지 않은 이상향",
+        coords: [41.4134, 2.1533],
+        lead:
+          "구엘 공원은 처음부터 공원이 아니라 바르셀로나 부르주아를 위한 고급 전원주택 단지였다. 거의 팔리지 않은 실패가 오늘의 공원이 됐다.",
+        points: [
+          "1900년 전후 바르셀로나는 성벽 밖 에이샴플라가 커지고 산업 자본이 문화 후원으로 이어지던 도시였다.",
+          "Modernisme는 단순한 아르누보 유행이 아니라 카탈루냐가 전통과 현대성을 함께 보여주려던 문화 운동이었다.",
+          "구엘은 고객이자 후원자, 친구에 가까웠다. 가우디의 상상력이 실현되려면 이런 부르주아 후원이 필요했다.",
+        ],
+      },
+      {
+        label: "자연 광장",
+        title: "Plaça de la Natura - 도시를 내려다보는 무대",
+        coords: [41.4143, 2.1525],
+        lead:
+          "이 광장은 전망대이면서 사람들이 모이고 춤추고 말하던 시민적 무대다. 큰 곡선 벤치는 등받이, 난간, 전망 프레임을 한 번에 맡는다.",
+        points: [
+          "구엘 생전에도 이 공간은 카탈루냐주의 행사나 전통 춤 사르다나 같은 civic event에 쓰였다.",
+          "깨진 타일과 도자기를 이어 붙인 trencadís는 빛을 잘게 반사해 벤치가 도시 풍경과 함께 살아 움직이게 한다.",
+          "여기서는 벤치만 보지 말고, 벤치가 바르셀로나 전경을 어떻게 감싸는지 보면 훨씬 좋다.",
+        ],
+      },
+      {
+        label: "기둥의 방",
+        title: "Hypostyle Room - 시장, 광장, 배수가 겹친 구조",
+        coords: [41.4139, 2.1526],
+        lead:
+          "원래 시장으로 계획된 공간이다. 위에는 광장, 아래에는 86개 기둥의 그늘, 그리고 빗물이 구조를 따라 모이는 시스템이 겹쳐 있다.",
+        points: [
+          "고전적인 도리아식 기둥을 떠올리게 하지만, 실제 느낌은 신전과 숲 사이에 있다.",
+          "가우디의 핵심은 기능과 상징을 나누지 않는 것이다. 작동하는데 예쁘고, 예쁜데 실제로 필요하다.",
+          "여기서는 천장 장식만 올려다보기보다 기둥이 위 광장을 어떻게 받치는지 같이 보면 된다.",
+        ],
+      },
+      {
+        label: "용의 계단",
+        title: "Dragon Stairway - 물길과 상징의 축",
+        coords: [41.4135, 2.153],
+        lead:
+          "El Drac은 귀여운 기념품 캐릭터처럼 보이지만, 계단의 물길과 카탈루냐적 상징이 만나는 자리에 있다.",
+        points: [
+          "카탈루냐 문화에서 용은 자주 등장한다. 잠시 뒤 카사 바뜨요에서는 산 조르디와 용 이야기가 더 강하게 연결된다.",
+          "정면 사진은 사람이 많으니 45도 측면에서 계단 축과 함께 잡으면 더 자연스럽다.",
+          "구엘 공원의 장식은 물, 이동, 경사 같은 현실 문제를 해결하는 장치와 떨어져 있지 않다.",
+        ],
+      },
+      {
+        label: "세탁부 포르티코",
+        title: "Laundry Room Portico - 건축이 지형처럼 보이는 순간",
+        coords: [41.4151, 2.1519],
+        lead:
+          "길인데 동굴 같고, 구조물인데 원래 있던 암반처럼 보인다. 사람과 마차가 다닐 길을 만들면서 산의 일부처럼 보이게 한 구간이다.",
+        points: [
+          "가우디의 자연주의는 자연을 흉내 내는 데서 끝나지 않는다. 자연이 버티는 방식을 구조로 가져온다.",
+          "기둥은 장식이 아니라 경사와 길을 실제로 떠받치는 장치다.",
+          "이 지점에서는 '이게 건축물이 아니라 원래 있던 지형이라고 해도 믿을까?'라고 물어보면 좋다.",
+        ],
+      },
+      {
+        label: "카사 밀라",
+        title: "카사 밀라 - 돌의 파도와 도시 주거의 실험",
+        coords: [41.3954, 2.162],
+        lead:
+          "1906-1912년에 지어진 가우디의 대표 민간 주거 건물이다. La Pedrera, 즉 채석장이라는 별명은 처음엔 낯섦의 표현이었지만 지금은 정체성이 됐다.",
+        points: [
+          "정면은 평평한 벽이 아니라 바다처럼 출렁이는 피부다. 도시 주거를 자연 구조처럼 풀어낸 실험으로 보면 좋다.",
+          "발코니 철제 장식은 꽃, 해초, 고철이 동시에 떠오른다. 가우디는 철공, 목공, 유리, 세라믹 장인을 건축의 중심으로 끌어왔다.",
+          "옥상 굴뚝과 환기탑은 설비를 숨기지 않고 조각처럼 세운 사례다. 기능이 곧 조형이 되는 방식이다.",
+        ],
+      },
+      {
+        label: "카사 바뜨요",
+        title: "카사 바뜨요 - 바다, 뼈, 산 조르디의 용",
+        coords: [41.3917, 2.1649],
+        lead:
+          "카사 바뜨요는 1904-1906년 기존 건물을 완전히 바꾼 리모델링이다. 철거 대신 변신을 택했고, 도시의 집을 하나의 생명체처럼 만들었다.",
+        points: [
+          "정면은 파도, 물빛, 뼈, 가면처럼 동시에 읽힌다. 모호하기 때문에 더 오래 보게 되는 건물이다.",
+          "지붕의 비늘은 용의 등처럼 해석되고, 카탈루냐의 수호성인 산 조르디 전설과 연결해서 많이 읽힌다.",
+          "카사 밀라가 돌과 구조, 무게의 건물이라면 카사 바뜨요는 색과 빛, 이야기의 건물이다.",
+        ],
+      },
     ],
   },
   {
@@ -389,9 +495,11 @@ const itinerary = [
 
 const state = {
   selectedDay: itinerary[0].day,
+  selectedGuideIndex: 0,
   map: null,
   markerLayer: null,
   routeLayer: null,
+  guideLayer: null,
 };
 
 const els = {};
@@ -415,6 +523,9 @@ function cacheElements() {
   els.timeline = document.querySelector("#timeline");
   els.transportList = document.querySelector("#transport-list");
   els.mapFallback = document.querySelector("#map-fallback");
+  els.guideSection = document.querySelector("#guide-section");
+  els.guideTabs = document.querySelector("#guide-tabs");
+  els.guideReading = document.querySelector("#guide-reading");
 }
 
 function renderDayButtons() {
@@ -466,6 +577,7 @@ function initMap() {
 
   state.markerLayer = L.layerGroup().addTo(state.map);
   state.routeLayer = L.layerGroup().addTo(state.map);
+  state.guideLayer = L.layerGroup().addTo(state.map);
 }
 
 function selectDay(dayNumber) {
@@ -473,12 +585,14 @@ function selectDay(dayNumber) {
   if (!day) return;
 
   state.selectedDay = dayNumber;
+  state.selectedGuideIndex = 0;
   updateActiveButton(dayNumber);
   renderDayDetails(day);
   renderStops(day);
   renderTimeline(day);
   renderTransport(day);
   renderMap(day);
+  renderGuide(day);
 }
 
 function updateActiveButton(dayNumber) {
@@ -561,11 +675,103 @@ function renderTransport(day) {
   els.transportList.replaceChildren(...items);
 }
 
+function renderGuide(day) {
+  const guideStops = Array.isArray(day.guideStops) ? day.guideStops : [];
+
+  if (!guideStops.length || !els.guideSection || !els.guideTabs || !els.guideReading) {
+    hideGuide();
+    return;
+  }
+
+  els.guideSection.hidden = false;
+  const tabs = guideStops.map((guide, index) => {
+    const button = document.createElement("button");
+    button.className = "guide-tab";
+    button.type = "button";
+    button.textContent = guide.label;
+    button.setAttribute("aria-pressed", String(index === state.selectedGuideIndex));
+    button.addEventListener("click", () => focusGuideStop(day, index));
+    return button;
+  });
+
+  els.guideTabs.replaceChildren(...tabs);
+  renderGuideReading(guideStops[state.selectedGuideIndex]);
+  updateGuideTabs();
+  renderGuideMarker(guideStops[state.selectedGuideIndex], false);
+}
+
+function hideGuide() {
+  if (els.guideSection) els.guideSection.hidden = true;
+  if (els.guideTabs) els.guideTabs.replaceChildren();
+  if (els.guideReading) els.guideReading.replaceChildren();
+  if (state.guideLayer) state.guideLayer.clearLayers();
+}
+
+function focusGuideStop(day, index) {
+  const guide = day.guideStops?.[index];
+  if (!guide) return;
+
+  state.selectedGuideIndex = index;
+  updateGuideTabs();
+  renderGuideReading(guide);
+  renderGuideMarker(guide, true);
+}
+
+function updateGuideTabs() {
+  document.querySelectorAll(".guide-tab").forEach((button, index) => {
+    const isActive = index === state.selectedGuideIndex;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+function renderGuideReading(guide) {
+  if (!guide || !els.guideReading) return;
+
+  const title = document.createElement("h4");
+  title.textContent = guide.title;
+
+  const lead = document.createElement("p");
+  lead.textContent = guide.lead;
+
+  const list = document.createElement("ul");
+  const points = guide.points.map((point) => {
+    const item = document.createElement("li");
+    item.textContent = point;
+    return item;
+  });
+  list.replaceChildren(...points);
+
+  els.guideReading.replaceChildren(title, lead, list);
+}
+
+function renderGuideMarker(guide, shouldMoveMap) {
+  if (!guide || !Array.isArray(guide.coords) || !state.map || !state.guideLayer) return;
+
+  state.guideLayer.clearLayers();
+  const marker = L.marker(guide.coords, {
+    icon: L.divIcon({
+      className: "",
+      html: '<span class="guide-marker">◎</span>',
+      iconSize: [34, 34],
+      iconAnchor: [17, 17],
+    }),
+  });
+
+  marker.bindPopup(`<strong>${escapeHtml(guide.label)}</strong><span>${escapeHtml(guide.title)}</span>`);
+  marker.addTo(state.guideLayer);
+
+  if (shouldMoveMap) {
+    state.map.setView(guide.coords, 16);
+  }
+}
+
 function renderMap(day) {
   if (!state.map || !state.markerLayer || !state.routeLayer) return;
 
   state.markerLayer.clearLayers();
   state.routeLayer.clearLayers();
+  if (state.guideLayer) state.guideLayer.clearLayers();
 
   const stopsWithCoords = day.stops.filter((stop) => Array.isArray(stop.coords));
 

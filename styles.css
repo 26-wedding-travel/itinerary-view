@@ -265,6 +265,7 @@ h3 {
 
 .map-section,
 .route-section,
+.guide-section,
 .timeline-section,
 .transport-section {
   min-width: 0;
@@ -296,9 +297,70 @@ h3 {
 }
 
 .route-section,
+.guide-section,
 .timeline-section,
 .transport-section {
   padding: 14px;
+}
+
+.guide-section {
+  margin-bottom: 18px;
+}
+
+.guide-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.guide-tab {
+  flex: 0 0 auto;
+  max-width: 180px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 760;
+  line-height: 1.2;
+  padding: 9px 11px;
+  text-align: left;
+  white-space: normal;
+}
+
+.guide-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.guide-reading {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-reading h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.guide-reading p {
+  margin-bottom: 0;
+  color: var(--ink);
+}
+
+.guide-reading ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.guide-reading li {
+  padding-left: 2px;
 }
 
 .stop-list {
@@ -402,6 +464,20 @@ h3 {
   font-weight: 850;
 }
 
+.guide-marker {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
 .leaflet-popup-content {
   margin: 10px 12px;
   min-width: 120px;
@@ -479,5 +555,10 @@ h3 {
 
   .timeline-row {
     grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .guide-tab {
+    max-width: 148px;
+    font-size: 0.82rem;
   }
 }
