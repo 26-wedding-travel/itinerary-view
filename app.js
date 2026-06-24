@@ -17,18 +17,35 @@ const itinerary = [
       ["21:30", "저녁 식사", "고딕지구 주변", "타파스 추천"],
     ],
     transport: ["공항 → 숙소: Aerobus 또는 택시", "도착일이라 숙소 주변만 가볍게 이동"],
+    foodCandidates: [
+      {
+        slot: "늦은 저녁",
+        name: "Bo de Boqueria",
+        summary: "보케리아 옆 파에야/해산물 후보. 첫날 늦게 도착해도 제대로 먹고 싶을 때.",
+      },
+      {
+        slot: "가볍게",
+        name: "La Plata",
+        summary: "메뉴가 적은 로컬 타파스 바. 피곤하면 정어리와 맥주로 짧게 마무리.",
+      },
+      {
+        slot: "백업",
+        name: "Euskal Etxea",
+        summary: "고딕지구 핀초스 바. 조금씩 골라 먹기 좋아 도착일 백업으로 적합.",
+      },
+    ],
   },
   {
     day: 2,
     date: "6월 30일 (화)",
     title: "가우디 셀프 가이드",
     city: "바르셀로나",
-    route: "숙소 → 사그라다 파밀리아 → El Glop → 구엘 공원 → 카사 밀라 → 카사 바뜨요 → 숙소",
+    route: "숙소 → 사그라다 파밀리아 → 사그라다 근처 점심 → 구엘 공원 → 카사 밀라 → 카사 바뜨요 → 숙소",
     lodging: "Duquesa de Cardona 4* Sup",
     stops: [
       { name: "Duquesa de Cardona", note: "출발", coords: [41.3802, 2.1815] },
       { name: "Sagrada Familia", note: "09:30 입장", coords: [41.4036, 2.1744] },
-      { name: "El Glop Gaudi", note: "사그라다 근처 점심", coords: [41.4022, 2.176] },
+      { name: "사그라다 점심 권역", note: "Puertecillo/Sagradas Tapas 우선, El Glop 후순위", coords: [41.4022, 2.176] },
       { name: "Park Guell", note: "14:00 일반권 구매 완료", coords: [41.4145, 2.1527] },
       { name: "Casa Mila", note: "외관 도슨트", coords: [41.3954, 2.162] },
       { name: "Casa Batllo", note: "외관 도슨트", coords: [41.3917, 2.1649] },
@@ -39,8 +56,8 @@ const itinerary = [
       ["09:30", "사그라다 파밀리아 입장", "Sagrada Familia", "예약 완료"],
       ["10:00", "탄생의 파사드 타워", "Nativity facade tower", "타워 입장"],
       ["11:30", "내부 관람 마무리", "Sagrada Familia", "사진/기념품, 외관 도슨트"],
-      ["11:50", "캐주얼 점심", "El Glop Gaudi", "구엘 공원 전 무겁지 않게"],
-      ["13:20", "택시 이동", "El Glop → Park Guell", "Carretera del Carmel 방향"],
+      ["11:50", "캐주얼 점심", "사그라다 근처", "Puertecillo/Sagradas Tapas 우선, El Glop 후순위"],
+      ["13:20", "택시 이동", "사그라다 근처 → Park Guell", "Carretera del Carmel 방향"],
       ["14:00", "구엘 공원 입장", "Park Guell", "입장권 구매 완료"],
       ["14:00~15:30", "구엘 공원 셀프 가이드", "Park Guell", "Nature Square, Hypostyle Room, Dragon Stairway"],
       ["15:30", "택시 이동", "Park Guell → Casa Mila", "택시 승강장 또는 Picmi"],
@@ -55,8 +72,35 @@ const itinerary = [
       "구엘 공원 일반권 14:00 구매 완료",
       "숙소 → 사그라다 → 구엘 공원 → 카사 밀라 구간은 택시 권장",
       "카사 밀라 → 카사 바뜨요는 Passeig de Gracia 도보 이동",
-      "파인다이닝 예약은 포기하고 El Glop Gaudi에서 빠른 점심",
+      "파인다이닝 예약은 포기하고 사그라다 근처에서 빠른 점심",
       "저녁은 컨디션 보고 항구, 고딕지구, 바르셀로네타 중 선택",
+    ],
+    foodCandidates: [
+      {
+        slot: "점심 1순위",
+        name: "Puertecillo",
+        summary: "사그라다 도보권 해산물 카운터. 가볍게 골라 먹고 구엘 공원으로 이동하기 좋음.",
+      },
+      {
+        slot: "점심 대안",
+        name: "Sagradas Tapas",
+        summary: "가우디 대로 노천석 타파스/1인 파에야 후보. 동선이 단순한 백업.",
+      },
+      {
+        slot: "후순위",
+        name: "El Glop Gaudi",
+        summary: "사그라다 바로 옆 쌀요리 후보. 후기 호불호가 있어 현장 분위기 보고 선택.",
+      },
+      {
+        slot: "카사 바뜨요 후",
+        name: "Casa Alfonso",
+        summary: "하몽과 판 콘 토마테 후보. 에이샴플라 쪽에서 저녁까지 이어갈 때 좋음.",
+      },
+      {
+        slot: "디저트",
+        name: "Lucciano's",
+        summary: "Ciutat Comtal 근처 젤라토 후보. 카사 바뜨요 이후 짧게 들르기 좋음.",
+      },
     ],
     guideStops: [
       {
@@ -160,36 +204,62 @@ const itinerary = [
   {
     day: 3,
     date: "7월 1일 (수)",
-    title: "몬세라트 반일 투어와 Bar Cañete",
+    title: "몬세라트 & 올리브농장 투어",
     city: "바르셀로나",
-    route: "숙소 → The Touring Pandas → 몬세라트 → 숙소 → Bar Cañete",
+    route: "숙소 → 만다린 오리엔탈 앞 → 몬세라트 → 올리브농장 → 숙소 → Bar Cañete",
     lodging: "Duquesa de Cardona 4* Sup",
     stops: [
       { name: "Duquesa de Cardona", note: "출발", coords: [41.3802, 2.1815] },
-      { name: "The Touring Pandas office", note: "09:20 집합", coords: [41.4036, 2.1726] },
-      { name: "Montserrat", note: "반일 투어", coords: [41.5958, 1.8298] },
-      { name: "Montserrat Monastery", note: "바실리카/자유 시간", coords: [41.5936, 1.8375] },
-      { name: "The Touring Pandas office", note: "14:30 종료", coords: [41.4036, 2.1726] },
-      { name: "Duquesa de Cardona", note: "오후 휴식", coords: [41.3802, 2.1815] },
+      { name: "Mandarin Oriental Barcelona", note: "07:40 집합, 07:50 정시 출발", coords: [41.3911, 2.1664] },
+      { name: "Montserrat", note: "NomadBenz 옵션B", coords: [41.5958, 1.8298] },
+      { name: "Montserrat Monastery", note: "수도원/자유 시간", coords: [41.5936, 1.8375] },
+      { name: "Olive farm", note: "위치 바우처 확인 필요, 추정 좌표", coords: [41.532, 1.76] },
+      { name: "Mandarin Oriental Barcelona", note: "17:20 전후 복귀 예상, 종료 장소 변경 가능", coords: [41.3911, 2.1664] },
+      { name: "Duquesa de Cardona", note: "저녁 전 휴식", coords: [41.3802, 2.1815] },
       { name: "Bar Cañete", note: "워크인 도전", coords: [41.379, 2.1736] },
     ],
     timeline: [
-      ["08:55", "숙소 출발", "Duquesa de Cardona", "택시 권장"],
-      ["09:20", "투어 집합", "The Touring Pandas office", "Carrer de Sardenya 311"],
-      ["09:30", "몬세라트 반일 투어 시작", "Barcelona → Montserrat", "WAUG 예약 완료"],
-      ["오전", "몬세라트 이동 & 케이블카", "Montserrat Aeri", "케이블카 왕복 포함"],
-      ["점심 전후", "수도원 바실리카 & 자유 시간", "Montserrat Monastery", "점심 식사 불포함"],
-      ["14:30", "투어 종료", "The Touring Pandas office", "미팅 장소와 동일"],
-      ["15:15", "숙소 복귀 & 휴식", "Duquesa de Cardona", "저녁 전 휴식"],
-      ["17:30", "가벼운 산책", "La Rambla / La Boqueria", "컨디션 따라 생략 가능"],
-      ["19:20", "Bar Cañete 워크인 도전", "C/ de la Unió 17", "카운터/바 2인 문의"],
-      ["20:00", "저녁", "Bar Cañete 또는 7 Portes", "실패 시 숙소 근처 백업"],
+      ["07:10", "숙소 출발", "Duquesa de Cardona", "택시 권장"],
+      ["07:30", "미팅 포인트 도착", "Mandarin Oriental Barcelona", "Pg. de Gràcia 38-40, 지각 시 대기 없음"],
+      ["07:40", "투어 집합", "Mandarin Oriental Barcelona 앞", "예약번호 EXP-20260623-00013436"],
+      ["07:50", "몬세라트&올리브농장 투어 출발", "Barcelona → Montserrat", "한국어 가이드, 차량 이동"],
+      ["오전", "몬세라트 방문", "Montserrat / Monastery", "성당·검은 성모 선택권 별도, 사전 신청 여부 회신"],
+      ["오후", "올리브농장 방문", "Catalonia olive farm", "현장 €50/인, 2인 €100"],
+      ["17:20", "바르셀로나 복귀 예상", "Barcelona", "종료 시간/장소는 사전 안내와 함께 변경 가능"],
+      ["18:00", "숙소 복귀 & 휴식", "Duquesa de Cardona", "저녁 전 짧게 휴식"],
+      ["19:45", "Bar Cañete 워크인 도전", "C/ de la Unió 17", "컨디션 되면 문의"],
+      ["20:15", "저녁", "Bar Cañete 또는 7 Portes", "실패 시 숙소 근처 백업"],
       ["22:30", "숙소 복귀 & 짐 정리", "Duquesa de Cardona", "다음날 07:00 체크아웃"],
     ],
     transport: [
-      "숙소 → The Touring Pandas office: 택시 권장",
-      "몬세라트 투어: 미니밴 이동 + Montserrat Aeri 케이블카 왕복 포함",
+      "숙소 → 만다린 오리엔탈 호텔 앞: 택시 권장, 07:30 도착 목표",
+      "몬세라트&올리브농장 투어: NomadBenz 차량 이동",
+      "지각/불참 시 대기 없이 정시 출발, 중간 합류 어려움",
+      "올리브농장 필수 현장 비용: €50/인, 2인 €100 현금",
+      "선택 비용: 성당 €9/인, 검은 성모 €13/인, 유선 이어폰 €1/개",
       "Bar Cañete ↔ 숙소: 도보 가능",
+    ],
+    foodCandidates: [
+      {
+        slot: "투어 전",
+        name: "마트 간식/물",
+        summary: "아침 출발이 빨라 전날 물, 빵, 과일을 준비하는 쪽이 안정적.",
+      },
+      {
+        slot: "저녁 1순위",
+        name: "Bar Cañete",
+        summary: "마지막 밤 워크인 도전 후보. 성공하면 타파스 중심으로 제대로 먹는 날.",
+      },
+      {
+        slot: "저녁 백업",
+        name: "7 Portes",
+        summary: "숙소 근처 클래식 파에야 후보. Bar Cañete 실패 시 이동 부담이 적음.",
+      },
+      {
+        slot: "가벼운 대안",
+        name: "Casa Alfonso",
+        summary: "하몽/타파스 분위기 후보. 투어 후 체력은 있지만 긴 식사는 부담일 때.",
+      },
     ],
   },
   {
@@ -222,6 +292,28 @@ const itinerary = [
       "Swiss LX1953 09:40 → 11:30",
       "Zürich Flughafen → Luzern: IR13 12:39 → 13:51",
       "루체른 시내는 도보 중심",
+    ],
+    foodCandidates: [
+      {
+        slot: "저녁 1순위",
+        name: "Rathaus Brauerei",
+        summary: "카펠교 옆 양조장. 맥주와 알프스 마카로니/치킨으로 위치와 가격 균형이 좋음.",
+      },
+      {
+        slot: "특별한 저녁",
+        name: "Zunfthausrestaurant Pfistern",
+        summary: "길드하우스 분위기의 퐁듀 전문 후보. 루체른 첫날 신혼 디너감.",
+      },
+      {
+        slot: "전통식",
+        name: "Wirtshaus Taube",
+        summary: "구시가지 선술집 분위기. 뢰스티와 전통 고기 요리 후보.",
+      },
+      {
+        slot: "카페/선물",
+        name: "Bachmann Confiseur",
+        summary: "루체른 대표 제과점. 초콜릿과 작은 디저트 구매용.",
+      },
     ],
   },
   {
@@ -258,6 +350,23 @@ const itinerary = [
       "숙소 → Skywings 미팅 포인트: 도보 2~4분",
       "Skywings 패러글라이딩: 업체 셔틀로 이륙장 이동, Hohematte 착륙",
     ],
+    foodCandidates: [
+      {
+        slot: "점심",
+        name: "Coop/Migros 간단식",
+        summary: "패러글라이딩 전 과식 방지용. 샌드위치, 과일, 음료로 가볍게.",
+      },
+      {
+        slot: "저녁 1순위",
+        name: "Husi Bierhaus",
+        summary: "숙소 근처 맥주집. 족발, 립, 치킨윙 등 이동일 저녁으로 편함.",
+      },
+      {
+        slot: "저녁 대안",
+        name: "Per Bacco",
+        summary: "파스타/리조또/피자 후보. 스위스 음식이 부담스러울 때 가벼운 선택.",
+      },
+    ],
   },
   {
     day: 6,
@@ -288,6 +397,28 @@ const itinerary = [
       "Grindelwald → Interlaken Ost: 15:47 → 16:24 또는 16:17 → 16:54",
       "First는 날씨가 핵심",
     ],
+    foodCandidates: [
+      {
+        slot: "산 위 점심",
+        name: "Berggasthaus First",
+        summary: "First 정상역 뢰스티/브라트부르스트 후보. 전망을 보며 먹는 점심.",
+      },
+      {
+        slot: "하산 중",
+        name: "Bort Schyr",
+        summary: "Bort 중간역 산장 후보. 하산 중 쉬어가며 먹기 좋음.",
+      },
+      {
+        slot: "마을 점심",
+        name: "Bebbis",
+        summary: "그린델발트 마을 퐁듀/버거/피자 후보. 곤돌라 하산 후 여유 있을 때.",
+      },
+      {
+        slot: "저녁",
+        name: "Restaurant Taverne",
+        summary: "인터라켄 퐁듀 후보. 산행 후 스위스식으로 마무리하기 좋음.",
+      },
+    ],
   },
   {
     day: 7,
@@ -299,28 +430,50 @@ const itinerary = [
     stops: [
       { name: "Hotel Harder Minerva", note: "출발", coords: [46.6886, 7.8582] },
       { name: "Interlaken Ost", note: "07:29 출발", coords: [46.6905, 7.869] },
-      { name: "Blausee BE", note: "09:00 블라우제 산책", coords: [46.5343, 7.6682] },
+      { name: "Blausee BE", note: "08:41 도착, SBB 발권 완료", coords: [46.5343, 7.6682] },
       { name: "Kandersteg", note: "10:54 도착", coords: [46.4947, 7.6731] },
-      { name: "Oeschinensee", note: "피크닉 + C코스", coords: [46.4982, 7.7277] },
+      { name: "Oeschinensee", note: "11:30~13:00 상행 예약 완료", coords: [46.4982, 7.7277] },
       { name: "Interlaken", note: "17:28 복귀", coords: [46.6863, 7.8632] },
     ],
     timeline: [
-      ["07:29", "블라우제행 출발", "Interlaken Ost", "Spiez/Frutigen 환승"],
+      ["07:29", "블라우제행 출발", "Interlaken Ost", "SBB 발권 완료, Spiez/Frutigen 환승"],
       ["08:41", "Blausee BE 도착", "Blausee BE", "09:00 오픈 전 여유"],
       ["09:00~10:25", "블라우제 산책", "Naturpark Blausee", "짧게 사진/산책"],
-      ["10:41", "칸더슈테크행 버스", "Blausee BE", "10:54 도착"],
-      ["11:30", "외시넨 케이블카", "Oeschinensee", "상행 11:30 전후 예약"],
+      ["10:41", "칸더슈테크행 버스", "Blausee BE", "SBB 발권 완료, 10:54 도착"],
+      ["11:30", "외시넨 케이블카 상행", "Oeschinensee", "예약 완료, 11:30~13:00 타임슬롯"],
       ["12:15~13:30", "호숫가 피크닉 & 휴식", "Oeschinensee", "돗자리, 도시락"],
       ["13:30~14:20", "C코스 산책/사진", "Oeschinensee", "20~30분 대표 전망 코스"],
-      ["15:20", "하산", "Oeschinensee 케이블카", "여유 있게 복귀"],
-      ["16:14", "인터라켄 복귀", "Kandersteg → Interlaken Ost", "17:28 도착"],
+      ["15:20", "하산", "Oeschinensee 케이블카", "왕복 티켓, 시간 여유 있게 선택"],
+      ["16:14", "인터라켄 복귀", "Kandersteg → Interlaken Ost", "17:28 도착, 복귀 티켓 별도 구매"],
       ["19:30", "스위스 마지막 밤 디너", "인터라켄", "Fondue Villa 권장"],
     ],
     transport: [
-      "Interlaken Ost → Blausee BE: 07:29 → 08:41",
-      "Blausee BE → Kandersteg: 버스 230, 10:41 → 10:54",
-      "Kandersteg → Interlaken Ost: 16:14 → 17:28",
-      "Oeschinensee 상행은 11:30 전후 예약",
+      "Interlaken Ost → Blausee BE: 07:29 → 08:41, 발권 완료",
+      "Blausee BE → Kandersteg: 버스 230, 10:41 → 10:54, 발권 완료",
+      "Kandersteg → Interlaken Ost: 16:14 → 17:28, 복귀 티켓 별도 구매",
+      "Oeschinensee 상행 11:30~13:00 예약 완료",
+    ],
+    foodCandidates: [
+      {
+        slot: "점심",
+        name: "외시넨 호숫가 피크닉",
+        summary: "전날 빵, 치즈, 과일, 음료를 사두고 호숫가에서 쉬는 일정.",
+      },
+      {
+        slot: "저녁 1순위",
+        name: "Fondue Villa & Garden",
+        summary: "인터라켄 마지막 밤 퐁듀 후보. 정원 분위기라 예약 우선.",
+      },
+      {
+        slot: "저녁 대안",
+        name: "Restaurant Stadthaus",
+        summary: "운터젠 구시가지 전통식 후보. 산책과 같이 묶기 좋음.",
+      },
+      {
+        slot: "카페/디저트",
+        name: "Schuh",
+        summary: "Hoheweg의 오래된 카페/레스토랑. 퐁듀나 디저트 백업.",
+      },
     ],
   },
   {
@@ -359,6 +512,28 @@ const itinerary = [
       "Milano Centrale → Firenze SMN: Frecciarossa 8813/9425 14:35 → 16:39 발권 완료",
       "남하 루트는 공사로 불가, 취리히 우회",
     ],
+    foodCandidates: [
+      {
+        slot: "이동 중",
+        name: "역/기차 간식",
+        summary: "긴 이동일이라 무리한 점심 대신 샌드위치, 물, 과일 위주로 안정 운영.",
+      },
+      {
+        slot: "도착 후 디저트",
+        name: "La Strega Nocciola",
+        summary: "두오모 산책 중 들르기 좋은 젤라또 후보.",
+      },
+      {
+        slot: "저녁 특별식",
+        name: "La Leggenda dei Frati",
+        summary: "전망과 석양을 노리는 피렌체 특별 디너 후보.",
+      },
+      {
+        slot: "저녁 뷰",
+        name: "Golden View",
+        summary: "폰테 베키오와 아르노강 전망 후보. 도착일 저녁 대안.",
+      },
+    ],
   },
   {
     day: 9,
@@ -385,6 +560,33 @@ const itinerary = [
       ["21:30", "촬영 후 야경 산책", "산타크로체/두오모", "무리하지 않기"],
     ],
     transport: ["피렌체 중심부는 도보 중심", "미켈란젤로 광장은 오르막이라 택시/버스 선택 가능"],
+    foodCandidates: [
+      {
+        slot: "점심",
+        name: "Da Nerbone",
+        summary: "중앙시장 1층 람프레도토/볼리토 샌드위치 후보. 점심 줄 감안.",
+      },
+      {
+        slot: "점심 대안",
+        name: "Il Tartufo",
+        summary: "중앙시장 2층 트러플 생면 파스타 후보. 캐주얼하게 먹기 좋음.",
+      },
+      {
+        slot: "스냅 전 이른 저녁",
+        name: "Trattoria 4 Leoni",
+        summary: "올트라르노 전통 트라토리아 후보. 촬영 전엔 너무 무겁지 않게.",
+      },
+      {
+        slot: "스냅 전 대안",
+        name: "Gurdulu",
+        summary: "현대적 토스카나 요리 후보. 분위기는 좋지만 시간 여유가 필요.",
+      },
+      {
+        slot: "촬영 후",
+        name: "Gelateria dei Neri",
+        summary: "산타크로체/두오모 쪽 야경 산책 후 젤라또 마무리 후보.",
+      },
+    ],
   },
   {
     day: 10,
@@ -414,6 +616,28 @@ const itinerary = [
       "Firenze SMN → Roma Termini: Italo 08:43 → 12:30",
       "Roma Termini → 숙소: 메트로/택시 약 15분",
     ],
+    foodCandidates: [
+      {
+        slot: "오후 커피",
+        name: "Antico Caffe Greco",
+        summary: "스페인 계단 근처 오래된 카페. 트레비/스페인 계단 동선 중 에스프레소 후보.",
+      },
+      {
+        slot: "저녁 1순위",
+        name: "Trattoria Da Teo",
+        summary: "트라스테베레 디너 후보. 첫 로마 밤에 현지 분위기 내기 좋음.",
+      },
+      {
+        slot: "저녁 대안",
+        name: "Grazia & Graziella",
+        summary: "트라스테베레 테라스 분위기 후보. 예약 가능하면 편함.",
+      },
+      {
+        slot: "젤라또",
+        name: "Otaleg",
+        summary: "트라스테베레 산책 후 젤라또 후보.",
+      },
+    ],
   },
   {
     day: 11,
@@ -437,6 +661,28 @@ const itinerary = [
       ["저녁", "나보나 광장/판테온", "Centro Storico", "야경 산책"],
     ],
     transport: ["숙소 기준 도보 + 택시/버스 선택", "콜로세움 입장 시간 고정 가능성 높음"],
+    foodCandidates: [
+      {
+        slot: "점심 1순위",
+        name: "La Carbonara",
+        summary: "몬티 지구 카르보나라 후보. 콜로세움/포로 로마노 후 동선이 좋음.",
+      },
+      {
+        slot: "점심 대안",
+        name: "L'Asino d'Oro",
+        summary: "움브리아 요리 점심세트 후보. 가성비와 가벼운 점심에 강점.",
+      },
+      {
+        slot: "야경 커피",
+        name: "Tazza d'Oro",
+        summary: "판테온 근처 에스프레소 후보. 야경 산책 중 짧게 들르기 좋음.",
+      },
+      {
+        slot: "젤라또",
+        name: "Gelateria del Teatro",
+        summary: "나보나/판테온 주변 젤라또 후보. 저녁 산책 마무리용.",
+      },
+    ],
   },
   {
     day: 12,
@@ -461,6 +707,28 @@ const itinerary = [
       ["저녁", "캄포 데 피오리", "Campo de' Fiori", "마지막 로마 밤"],
     ],
     transport: ["숙소에서 바티칸까지 택시/버스 또는 도보", "바티칸은 입장 대기 시간을 넉넉하게 잡기"],
+    foodCandidates: [
+      {
+        slot: "점심",
+        name: "Bonci Pizzarium",
+        summary: "바티칸 근처 피자 알 탈리오 후보. 투어 뒤 빠르게 먹기 좋음.",
+      },
+      {
+        slot: "저녁 특별식",
+        name: "Roscioli",
+        summary: "캄포 데 피오리 근처 미식 디너 후보. 예약 필수급.",
+      },
+      {
+        slot: "저녁 캐주얼",
+        name: "Dar Filettaro",
+        summary: "바칼라 튀김 후보. 짧게 먹고 와인바로 이어가기 좋음.",
+      },
+      {
+        slot: "와인바",
+        name: "Cul de Sac",
+        summary: "Dar Filettaro 이후 와인으로 마무리하는 대안.",
+      },
+    ],
   },
   {
     day: 13,
@@ -489,6 +757,23 @@ const itinerary = [
       "숙소 → Termini: 택시/버스 약 15분",
       "Termini → FCO: Leonardo Express 약 32분",
       "국제선 출발 3시간 전 공항 도착 기준",
+    ],
+    foodCandidates: [
+      {
+        slot: "마지막 점심",
+        name: "Da Enzo al 29",
+        summary: "트라스테베레 마지막 카르보나라 후보. 12:00 오픈런 감안.",
+      },
+      {
+        slot: "점심 대안",
+        name: "Tonnarello",
+        summary: "트라스테베레 인기 파스타 후보. 대기 줄이 길면 시간 관리 필요.",
+      },
+      {
+        slot: "기념품",
+        name: "Tazza d'Oro",
+        summary: "공항 이동 전 커피 원두 기념품 후보. 판테온 주변 여유 시간에.",
+      },
     ],
   },
 ];
@@ -526,6 +811,8 @@ function cacheElements() {
   els.guideSection = document.querySelector("#guide-section");
   els.guideTabs = document.querySelector("#guide-tabs");
   els.guideReading = document.querySelector("#guide-reading");
+  els.foodSection = document.querySelector("#food-section");
+  els.foodList = document.querySelector("#food-list");
 }
 
 function renderDayButtons() {
@@ -591,6 +878,7 @@ function selectDay(dayNumber) {
   renderStops(day);
   renderTimeline(day);
   renderTransport(day);
+  renderFoodCandidates(day);
   renderMap(day);
   renderGuide(day);
 }
@@ -673,6 +961,41 @@ function renderTransport(day) {
   });
 
   els.transportList.replaceChildren(...items);
+}
+
+function renderFoodCandidates(day) {
+  const candidates = Array.isArray(day.foodCandidates) ? day.foodCandidates : [];
+
+  if (!candidates.length || !els.foodSection || !els.foodList) {
+    hideFoodCandidates();
+    return;
+  }
+
+  els.foodSection.hidden = false;
+  const items = candidates.map((candidate) => {
+    const item = document.createElement("article");
+    item.className = "food-item";
+
+    const slot = document.createElement("span");
+    slot.className = "food-slot";
+    slot.textContent = candidate.slot;
+
+    const name = document.createElement("strong");
+    name.textContent = candidate.name;
+
+    const summary = document.createElement("p");
+    summary.textContent = candidate.summary;
+
+    item.append(slot, name, summary);
+    return item;
+  });
+
+  els.foodList.replaceChildren(...items);
+}
+
+function hideFoodCandidates() {
+  if (els.foodSection) els.foodSection.hidden = true;
+  if (els.foodList) els.foodList.replaceChildren();
 }
 
 function renderGuide(day) {

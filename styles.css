@@ -266,6 +266,7 @@ h3 {
 .map-section,
 .route-section,
 .guide-section,
+.food-section,
 .timeline-section,
 .transport-section {
   min-width: 0;
@@ -298,12 +299,14 @@ h3 {
 
 .route-section,
 .guide-section,
+.food-section,
 .timeline-section,
 .transport-section {
   padding: 14px;
 }
 
-.guide-section {
+.guide-section,
+.food-section {
   margin-bottom: 18px;
 }
 
@@ -448,6 +451,40 @@ h3 {
 
 .transport-list li {
   padding-left: 2px;
+}
+
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.food-item {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 10px 11px;
+}
+
+.food-slot {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 820;
+}
+
+.food-item strong {
+  display: block;
+  overflow-wrap: anywhere;
+  margin-bottom: 4px;
+}
+
+.food-item p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
 }
 
 .route-marker {
