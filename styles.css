@@ -297,6 +297,10 @@ h3 {
   text-align: center;
 }
 
+.map-fallback[hidden] {
+  display: none;
+}
+
 .route-section,
 .guide-section,
 .food-section,
