@@ -831,8 +831,18 @@ document.addEventListener("DOMContentLoaded", () => {
   cacheElements();
   renderDayButtons();
   initMap();
+  registerServiceWorker();
   selectDay(state.selectedDay);
 });
+
+function registerServiceWorker() {
+  const serviceWorker = window.navigator?.serviceWorker;
+  if (!serviceWorker) return;
+
+  serviceWorker.register("./service-worker.js").catch((error) => {
+    console.warn("Service worker registration failed", error);
+  });
+}
 
 function cacheElements() {
   els.dayList = document.querySelector("#day-list");
@@ -895,10 +905,14 @@ function initMap() {
     zoomControl: true,
   }).setView([45.4, 7.6], 5);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: "&copy; OpenStreetMap contributors",
-  }).addTo(state.map);
+  if (window.navigator?.onLine === false) {
+    els.mapFallback.hidden = false;
+  } else {
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors",
+    }).addTo(state.map);
+  }
 
   state.markerLayer = L.layerGroup().addTo(state.map);
   state.routeLayer = L.layerGroup().addTo(state.map);
