@@ -1,4 +1,4 @@
-const CACHE_NAME = "itinerary-view-v1";
+const CACHE_NAME = "itinerary-view-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
