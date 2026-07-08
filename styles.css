@@ -11,6 +11,12 @@
   --accent-soft: #dcebe7;
   --blue: #315f96;
   --rose: #9a4d4d;
+  --ok: #17633c;
+  --ok-soft: #e1f0e6;
+  --warn: #8a5a00;
+  --warn-soft: #fff0cf;
+  --bad: #9c2f2f;
+  --bad-soft: #f8dddd;
   --shadow: 0 16px 40px rgba(41, 35, 26, 0.1);
   --radius: 8px;
 }
@@ -94,6 +100,204 @@ h3 {
 .trip-chip {
   padding: 10px 12px;
   white-space: nowrap;
+}
+
+.network-diagnostics {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.network-diagnostics-header,
+.network-report-row,
+.network-diagnostics-item-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.network-diagnostics-header h2 {
+  font-size: 1.2rem;
+}
+
+.primary-action,
+.secondary-action {
+  min-height: 40px;
+  border: 1px solid var(--accent-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.primary-action {
+  background: var(--accent-strong);
+  color: #fff;
+  padding: 8px 14px;
+}
+
+.primary-action:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.secondary-action {
+  background: var(--surface-strong);
+  color: var(--accent-strong);
+  padding: 7px 11px;
+}
+
+.network-diagnostics-summary {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.network-diagnostics-summary strong,
+.network-diagnostics-summary span {
+  display: block;
+}
+
+.network-diagnostics-summary strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.network-diagnostics-summary.is-running,
+.network-diagnostics-summary.is-idle {
+  background: var(--surface-strong);
+}
+
+.network-diagnostics-summary.is-ok {
+  border-color: rgba(23, 99, 60, 0.32);
+  background: var(--ok-soft);
+}
+
+.network-diagnostics-summary.is-warn {
+  border-color: rgba(138, 90, 0, 0.34);
+  background: var(--warn-soft);
+}
+
+.network-diagnostics-summary.is-bad {
+  border-color: rgba(156, 47, 47, 0.32);
+  background: var(--bad-soft);
+}
+
+.network-diagnostics-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.network-diagnostics-item {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  padding: 10px 11px;
+}
+
+.network-diagnostics-item.is-pass {
+  border-color: rgba(23, 99, 60, 0.28);
+}
+
+.network-diagnostics-item.is-warn {
+  border-color: rgba(138, 90, 0, 0.32);
+}
+
+.network-diagnostics-item.is-fail {
+  border-color: rgba(156, 47, 47, 0.3);
+}
+
+.network-diagnostics-item-heading strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+}
+
+.network-diagnostics-item-heading span {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 830;
+  padding: 3px 7px;
+}
+
+.network-diagnostics-item.is-pass .network-diagnostics-item-heading span {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.network-diagnostics-item.is-warn .network-diagnostics-item-heading span {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.network-diagnostics-item.is-fail .network-diagnostics-item-heading span {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+
+.network-diagnostics-stage {
+  display: block;
+  margin-top: 5px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.network-diagnostics-item p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.network-report-row label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.network-diagnostics-report {
+  width: 100%;
+  min-height: 132px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: var(--ink);
+  font: 0.82rem/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  resize: vertical;
+  padding: 10px;
+}
+
+.network-diagnostics-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.network-diagnostics-note summary {
+  cursor: pointer;
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.network-diagnostics-note p {
+  margin: 8px 0 0;
 }
 
 .planner-layout {
@@ -556,6 +760,8 @@ h3 {
   }
 
   .topbar,
+  .network-diagnostics-header,
+  .network-report-row,
   .selected-day {
     display: grid;
     align-items: start;

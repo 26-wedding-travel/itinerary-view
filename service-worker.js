@@ -1,9 +1,10 @@
-const CACHE_NAME = "itinerary-view-v2";
+const CACHE_NAME = "itinerary-view-v4";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./network-diagnostics.js",
   "./manifest.webmanifest",
   "./icon.svg",
   "./apple-touch-icon.png",
